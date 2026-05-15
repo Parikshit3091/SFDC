@@ -33,4 +33,8 @@ global class AccContactResponse {
         }
         return wrapper;
     }
+
+    public static void method1(){
+        
+    }
 }
