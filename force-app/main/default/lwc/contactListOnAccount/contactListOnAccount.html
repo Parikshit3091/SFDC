@@ -1,0 +1,29 @@
+<template>
+    <lightning-card title="Contact Summary" icon-name="standard:account">
+        <div class="slds-m-around_medium">
+            
+            <!-- Check if data exists -->
+            <template lwc:if={contactsList.data}>
+                <div class="slds-m-bottom_medium">
+                    <!-- This calls the safe index-parsed getter -->
+                    <p><strong>Account Name:</strong> {accountName}</p>
+                </div>
+
+                <!-- Loop safely through the items using the contacts getter -->
+                <ul class="slds-list_ordered">
+                    <template for:each={contacts} for:item="con">
+                        <li key={con.Id} class="slds-m-vertical_x-small">
+                            {con.Name}
+                        </li>
+                    </template>
+                </ul>
+            </template>
+
+            <!-- Error state -->
+            <template lwc:if={contactsList.error}>
+                <p class="slds-text-color_error">Error loading contact data.</p>
+            </template>
+            
+        </div>
+    </lightning-card>
+</template>

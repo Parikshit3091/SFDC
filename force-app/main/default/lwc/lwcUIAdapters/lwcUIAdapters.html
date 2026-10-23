@@ -1,0 +1,15 @@
+<template>
+    
+    Account Name : {name} <br/>
+    Industry : {industry}
+
+    <lightning-card title="Update Account" icon-name="standard:account">
+        <div class="slds-p-around_medium slds-is-relative">
+            <lightning-input label="New Account Name" type="text" data-name="accName" class="slds-m-bottom_medium"></lightning-input>
+       
+            <lightning-input type="tel" label="Phone Number" data-name="accPhone" class="slds-m-bottom_medium" ></lightning-input>
+
+            <lightning-button variant="brand" label="Update" onclick={handleSubmit}></lightning-button>
+        </div>
+    </lightning-card>
+</template>
