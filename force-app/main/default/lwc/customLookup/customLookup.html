@@ -1,0 +1,36 @@
+<template>
+    <div class="slds-form-element">
+        <lightning-input
+            type="search"
+            label={label}
+            placeholder={placeholder}
+            value={searchKey}
+            required={required}
+            onchange={handleInputChange}
+        >
+        </lightning-input>
+        <template lwc:if={isLoading}>
+            <lightning-spinner alternative-text="Loading records" size="small"></lightning-spinner>
+        </template>
+        <template if:true={showOptions}>
+            <div class="slds-dropdown slds-dropdown_fluid slds-dropdown_length-5">
+                <ul class="slds-listbox slds-listbox_vertical" role="listbox">
+                    <template for:each={records} for:item="record">
+                        <li key={record.Id} class="slds-listbox__item" role="presentation">
+                            <div
+                                class="slds-listbox__option slds-listbox__option_plain slds-media"
+                                role="option"
+                                data-record-id={record.Id}
+                                onclick={handleRecordSelect}
+                            >
+                                <span class="slds-media__body">
+                                    <span class="slds-truncate">{record.Name}</span>
+                                </span>
+                            </div>
+                        </li>
+                    </template>
+                </ul>
+            </div>
+        </template>
+    </div>
+</template>
